@@ -12,13 +12,11 @@ app.use(express.json())
 
 app.use(cors())
 
-app.use("/user",userRouter)
+app.use("/user", userRouter)
 
+app.use("/", postRouter)
 
-
-app.use("/",postRouter)
-
-app.listen(process.env.port, async () => {
+app.listen(6500, async () => {
     try {
         await connection
         console.log("Connected to Database succesfully");
@@ -26,5 +24,5 @@ app.listen(process.env.port, async () => {
         console.log(error);
         console.log("Some error while connicting to DB");
     }
-    console.log(`server is connected to port no ${process.env.port} `);
+    console.log(`server is connected to port no 6500`);
 })
